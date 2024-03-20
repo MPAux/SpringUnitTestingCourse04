@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 @Transactional
 public class StudentAndGradeService {
@@ -19,4 +21,18 @@ public class StudentAndGradeService {
         studentDao.save(student);
     }
 
+    public boolean checkIfStudentIsNull(int id) {
+        Optional<CollegeStudent> student = studentDao.findById(id);
+        return student.isPresent();
+    }
+
+    public void deleteStudent(int id) {
+        if(checkIfStudentIsNull(id)) {
+            studentDao.deleteById(id);
+        }
+    }
+
+    public Iterable<CollegeStudent> getGradebook() {
+        return studentDao.findAll();
+    }
 }

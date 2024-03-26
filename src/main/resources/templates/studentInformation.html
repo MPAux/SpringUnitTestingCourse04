@@ -68,7 +68,7 @@
                                 <form id = "mathGrade" style="display: none;" method="post" action="/grades">
                                     <div class="form-group">
                                         <label for="grade">Grade</label>
-                                        <input type="number" class="form-control" name="grade" placeholder="Enter grade" step="0.01" min="0" max="100">
+                                        <input type="number" id="grade" class="form-control" name="grade" placeholder="Enter grade" step="0.01" min="0" max="100">
                                         <small class="form-text text-muted">Enter student's grade.</small>
 
                                         <input type="number" class="form-control" name="studentId" th:value="${student.id}" style="display: none">
